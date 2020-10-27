@@ -5,12 +5,23 @@
  */
 package alejandro_e4_dimensionlocation;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.ItemEvent;
+
 /**
  *
  * @author Alejandro Campos Maestre
  */
 public class fraVentana extends javax.swing.JFrame
 {
+
+    Dimension Tmonitor = Toolkit.getDefaultToolkit().getScreenSize();
+    int ancho = Tmonitor.width;
+    int largo = Tmonitor.height;
+
+    String tituloAlig = "center";
+    String tituloDim = "300";
 
     /**
      * Creates new form fraVentana
@@ -40,17 +51,53 @@ public class fraVentana extends javax.swing.JFrame
         setTitle("Dimensiones y posiciones – Centro – 300×300");
         setLocation(new java.awt.Point(400, 200));
         setMinimumSize(new java.awt.Dimension(100, 100));
+        setPreferredSize(new java.awt.Dimension(300, 300));
         setSize(new java.awt.Dimension(300, 300));
 
         btnArribaDcha.setText("Arriba Derecha");
+        btnArribaDcha.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnArribaDchaActionPerformed(evt);
+            }
+        });
 
         btnArribaIzq.setText("Arriba Izquierda");
+        btnArribaIzq.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnArribaIzqActionPerformed(evt);
+            }
+        });
 
         btnAbajoIzq.setText("Abajo Izquierda");
+        btnAbajoIzq.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnAbajoIzqActionPerformed(evt);
+            }
+        });
 
         btnAbajoDcha.setText("Abajo Derecha");
+        btnAbajoDcha.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnAbajoDchaActionPerformed(evt);
+            }
+        });
 
         tglDimension.setText("Aumenta dimensión");
+        tglDimension.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
+                tglDimensionItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,13 +112,13 @@ public class fraVentana extends javax.swing.JFrame
                         .addComponent(btnAbajoDcha))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnArribaIzq)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                         .addComponent(btnArribaDcha)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tglDimension)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,9 +127,9 @@ public class fraVentana extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnArribaIzq)
                     .addComponent(btnArribaDcha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addComponent(tglDimension)
-                .addGap(96, 96, 96)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAbajoDcha)
                     .addComponent(btnAbajoIzq))
@@ -91,6 +138,61 @@ public class fraVentana extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnArribaIzqActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnArribaIzqActionPerformed
+    {//GEN-HEADEREND:event_btnArribaIzqActionPerformed
+        // TODO add your handling code here:
+        setLocation(0, 0);
+        tituloAlig = "Arriba Izquierda";
+        this.setTitle("Dimensiones y posiciones – " + tituloAlig + " – " + tituloDim);
+    }//GEN-LAST:event_btnArribaIzqActionPerformed
+
+    private void btnArribaDchaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnArribaDchaActionPerformed
+    {//GEN-HEADEREND:event_btnArribaDchaActionPerformed
+        // TODO add your handling code here:
+        setLocation(ancho - 300, 0);
+        tituloAlig = "Arriba Derecha";
+        this.setTitle("Dimensiones y posiciones – " + tituloAlig + " – " + tituloDim);
+    }//GEN-LAST:event_btnArribaDchaActionPerformed
+
+    private void btnAbajoIzqActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAbajoIzqActionPerformed
+    {//GEN-HEADEREND:event_btnAbajoIzqActionPerformed
+        // TODO add your handling code here:
+        setLocation(0, largo - 380);
+        tituloAlig = "Abajo Izquierda";
+        this.setTitle("Dimensiones y posiciones – " + tituloAlig + " – " + tituloDim);
+    }//GEN-LAST:event_btnAbajoIzqActionPerformed
+
+    private void btnAbajoDchaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAbajoDchaActionPerformed
+    {//GEN-HEADEREND:event_btnAbajoDchaActionPerformed
+        // TODO add your handling code here:
+        setLocation(ancho - 300, largo - 380);
+        tituloAlig = "Abajo Derecha";
+        this.setTitle("Dimensiones y posiciones – " + tituloAlig + " – " + tituloDim);
+    }//GEN-LAST:event_btnAbajoDchaActionPerformed
+
+    private void tglDimensionItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_tglDimensionItemStateChanged
+    {//GEN-HEADEREND:event_tglDimensionItemStateChanged
+        // TODO add your handling code here:
+        int estado = evt.getStateChange();
+        if (estado == ItemEvent.SELECTED)
+        {
+            this.tglDimension.setText("Disminuye dimensión");
+            this.setSize(600, 600);
+            tituloDim = "600x600";
+            this.setTitle("Dimensiones y posiciones – " + tituloAlig + " – " + tituloDim);
+            ancho = ancho - 300;
+            largo = largo - 300;
+        } else
+        {
+            this.tglDimension.setText("Aumenta dimensión");
+            this.setSize(300, 300);
+            tituloDim = "300x300";
+            this.setTitle("Dimensiones y posiciones – " + tituloAlig + " – " + tituloDim);
+            ancho = ancho + 300;
+            largo = largo + 300;
+        }
+    }//GEN-LAST:event_tglDimensionItemStateChanged
 
     /**
      * @param args the command line arguments
